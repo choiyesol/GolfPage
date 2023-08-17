@@ -1,0 +1,400 @@
+/* 눈누 웹폰트 적용_Noto Sans */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+li { list-style: none; }
+a { 
+    text-decoration: none; 
+    display: block; 
+    color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+img { width:80%; }
+body { font-family: 'Noto Sans KR', sans-serif; }
+.wrap { width: 100%;}
+header {
+    /* section과 겹침, section보다 앞쪽에 배치 */
+    position: absolute;
+    left: 0; top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(160, 173, 160, 0.568);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 장치 가로길이를 기준으로 크기를 설정함(viewport width) */
+    /* 부모의 영향을 안받을거면 px,% 말고 vw,vh로 크기 값 설정 */
+    padding: 0 4vw;
+}
+/* 옆으로 나란히 */
+header div, header ul {
+    display: flex;
+    align-items: center;
+}
+header .member {
+    margin-left: 1vw;
+}
+header nav ul li {
+    margin: 0 1.6vw;
+}
+/* 주메뉴 글씨 굵게 설정 */
+header nav ul li a {
+    font-size: 18px;
+    font-weight: bold;
+}
+/* 주메뉴와 멤버메뉴에 마우스 오버 시 글자색 변경 */
+header nav ul li a:hover,
+header .member ul li a:hover {
+    color: rgb(145, 145, 145);
+}
+header .member ul li a {
+    color: #fffefe;
+    padding-left: 1.2vw;
+}
+
+/* 메인 슬라이드 */
+.main {
+    width: 100%;
+    height: 100vh;
+}
+.main .swiper {
+    width: 100%;
+    height: 100%;
+}
+/* 메인슬라이드의 배경이미지, 배경텍스트 속성 설정 */
+.main .swiper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 35vw;
+}
+.main .swiper .s1 { background-image: url(../img/main1.jpg);}
+.main .swiper .s2 { background-image: url(../img/main2.jpg);}
+.main .swiper .s3 { background-image: url(../img/main3.jpg);}
+.main .swiper .s4 { background-image: url(../img/main4.jpg);}
+
+.main .swiper .swiper-slide h1 {
+    margin: 0 auto;
+    margin-bottom: 54px;
+    font-size: 2.3vw;
+    color: rgb(230, 230, 230);
+    text-shadow: 1px 1px 1px #7c7c7c;
+    text-align: center;
+}
+
+/* 메인슬라이드의 골프 예약하기 버튼 속성 */
+.main .swiper button {
+    /* 커서 포인트 적용 안됨.. */
+    cursor: pointer;
+    border: 2px solid #fffbfb;
+    /* 버튼 스타일 설정  */
+    /* border-style: outset #757070; */
+    /* 버튼 테두리 둥글게 */
+    border-radius: 50px;
+    /* 버튼 배경색 없앰 */
+    background-color: transparent;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #7c7c7c;
+    font-size: 20px;
+    /* 버튼 크기를 여백으로 줌 */
+    padding: 10px 45px;
+    margin: 0 auto;
+    margin-top: 74px;
+    
+}
+
+/* 코스 3개 텍스트를 가로로 나란히 하고 싶은데
+위에서 이미 h1,button의 부모태그인 slide에 flex/center를 줘버림
+html body에서 다시 p태그의 부모객체인 p클래스를 만듬 */
+.main .swiper .swiper-slide .p {
+    /* 부모객체에 크기를 지정해줘야 자식이 상대크기로 위치 설정됨 */
+    width: 100%;
+    position: absolute;
+    bottom: 1vw;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+}
+/* 메인 슬라이드의 코스 3개 텍스트 */
+.main .swiper .swiper-slide .p p {
+    color: #fff;
+    font-size: 1vw;
+    cursor: pointer;
+    /* padding-left: 0; */
+    /* 화면에서 맨 앞으로 보여지게 해주세요 */
+    /* z-index: 1; */
+    
+}
+/* 메인 슬라이드의 페이지네이션 크기 조정 */
+.swiper1 .swiper-pagination {
+    /* bottom: 50vh; */
+    top: 43%;
+    margin-top: 7vw;
+    margin-left: -2vw;
+}
+
+/* 메인 슬라이드 페이지네이션 테두리 모양이나 색상 속성 */
+.swiper1 .swiper-pagination-bullet {
+    border-radius: 0;
+    width: 8px;
+    height: 8px;
+    /* background-color: #fff; */
+
+}
+.swiper1 .swiper-pagination-bullet-active {
+    width: 24px;
+    background-color: rgb(255, 255, 255);
+}
+
+/* 배너슬라이드1 */
+/* section cr (classy round) */
+.cr, .ci {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6vw;
+}
+.cr .cr_slide,
+.ci .ci_slide {
+    width: 62%;
+}
+.cr .cr_slide .swiper-slide,
+.ci .ci_slide .swiper-slide {
+    border: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
+    height: 40vw;
+}
+/* 배너슬라이드 이미지 */
+.cr .cr_slide .swiper-slide a .cr_img
+{
+    width: 130%;
+    height: 30vw;
+    border: 1px solid #eee;
+    padding: 3vw;
+    overflow: hidden;
+} 
+.ci .ci_slide .swiper-slide a .ci_img {
+    width: 100%;
+    height: 20vw;
+
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+/* 배너슬라이드1 이미지의 이미지 */
+.cr .cr_slide .swiper-slide a .cr_img img,
+.ci .ci_slide .swiper-slide a .ci_img img {
+    transform: scale(1,1);
+    transition: all 0.5s;
+}
+/* 배너슬라이드1 이미지에 마우스 오버시 나타나는 속성 */
+.cr .cr_slide .swiper-slide a .cr_img:hover img,
+.ci .ci_slide .swiper-slide a .ci_img:hover img {
+    transform: scale(1.1, 1.1);
+}
+.cr .cr_slide .swiper-slide a .cr_des,
+.ci .ci_slide .swiper-slide a .ci_des {
+    text-align: center;
+    font-size: 0.7vh;
+    padding-top: 2vw;
+    color: #666;
+}
+/* 배너슬라이드1의 이미지와 텍스트 속성 */
+.cr .cr_slide .swiper-slide a,
+.ci .ci_slide .swiper-slide a{
+    /* 겹쳐지게 해주세여 */
+    position: absolute;
+    left: -5vw; top: 0;
+    transform: scale(1,1) ; /*110%*/
+    width: 150%;
+    height: 150%;
+    transition: all 0.5s;
+}
+/* 배너슬라이드의 텍스트 */
+.cr .cr_title,
+.ci .ci_title {
+    width: 28%;
+    margin-bottom: 12vw;
+}
+.cr .cr_title h1,
+.ci .ci_title h1 {
+    font-size: 2.7vw;
+}
+.cr .cr_title p,
+.ci .ci_title p {
+    font-size: 1vw;
+    /* margin-top: 1vw; */
+    /* 줄간격 */
+    line-height: 1.8vw;
+}
+
+
+/* banner 영역 */
+.banner {
+    /* .banner_img와 .banner_txt 가로로 정렬 */
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #d6d6d6;
+    padding: 7vw 14vw;
+}
+/* banner의 직속자식 div */
+/* 배너 안의 .banner_img와 .banner_txt 스타일 속성 */
+.banner > div {
+    width: 50%;
+    /* div안의 이미지와 글자를 세로 + 가운데 정렬 */
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+} 
+
+/* 배너 안의 .banner_img의 자식객체 div스타일 */
+/* = .banner .banner_img div 아래랑 같은 코드임 */
+.banner .banner_txt {
+    width: 65%;
+    align-items: flex-start;
+}
+.banner .banner_img {
+    align-items: center;
+}
+.banner h1 {
+    font-size: 2.7vw;
+    margin-bottom: 2vw;
+}
+.banner p {
+    font-size: 1vw;
+    line-height: 1.8vw;
+}
+
+
+/* 첫번쨰 배너(연혁) 설정 */
+.h .banner_img {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 25px 0 50px;
+    position: relative;
+}
+.historyRound {
+    position: relative;
+    top: 80px;
+    left: 155px;
+    padding-bottom: 60px;
+}
+.historyRound div {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 0 0 0 252px;
+    box-sizing: border-box;
+    position: relative;
+    transition: all 0.3s;
+    z-index: 5;
+}
+
+
+
+
+/* 두번째 배너 설정 */
+.banner.cf .banner_img {
+    position: relative; /* 하위 요소의 절대 위치를 기반으로 설정 */
+}
+
+.cf .banner_img > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.cf .banner_img .visible {
+    opacity: 1;
+}
+.cf .banner_img1 {
+    margin-top: 100px;
+}
+
+
+
+/* 마지막 배너 _시설안내 */
+.af .banner_img {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:0 auto;
+}
+
+.af .banner_img > div {
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+/* 첫 번째와 세 번째 이미지 위에서 아래로 내려오는 효과를 위한 CSS */
+.af .banner_img > div:nth-child(2n+1) {
+    transform: translateY(-100px);
+}
+
+/* 두 번째와 네 번째 이미지 아래에서 위로 올라오는 효과를 위한 CSS */
+.af .banner_img > div:nth-child(2n) {
+    transform: translateY(100px);
+}
+
+/* scrollReveal 클래스에 애니메이션 효과 적용 */
+.af .banner_img > div.scrollReveal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+
+/* 푸터 */
+.footer-info {
+    width: 100%;
+    background-color: #313130;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-info__in {
+    height: 200px;
+    width: 1350px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Pretendard, -apple-system;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.footer-info__in>div {
+    color: #c0bdb8;
+    font-size: 14px;
+    line-height: 170%;
+}
+
+/* 카피라이트 부분 */
+.copyInfo {
+    transform: translateY(-70px);
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    opacity: 0.4;
+    font-weight: 300;
+    line-height: 140%;
+}
